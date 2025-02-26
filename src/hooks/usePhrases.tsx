@@ -15,7 +15,7 @@ export function usePhrases() {
     const add = useCallback((newPhrase: string) => {
         setPhrases(prev => [...prev, {
             id: uuid(),
-            phrase: newPhrase
+            text: newPhrase
         }])
     }, [])
 
@@ -29,3 +29,5 @@ export function usePhrases() {
         remove
     }
 }
+
+export type TUsePhrases = ReturnType<typeof usePhrases>;
