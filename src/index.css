@@ -5,7 +5,6 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 
@@ -16,7 +15,7 @@
 }
 
 #root {
-  margin: auto;
+  @apply max-w-screen m-auto min-w-0 w-screen md:max-w-xl lg:max-w-2xl xl:max-w-3xl p-2 sm:p-0
 }
 
 body {
@@ -27,15 +26,37 @@ body {
   min-height: 100vh;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* Set phrases background colors to mimic sticky notes color pallette. 
+(taken from https://www.color-hex.com/color-palette/1036235) */
+
+.alternate-color-children > :nth-of-type(5n+1) {
+  background-color: rgb(255,126,205);
 }
+
+.alternate-color-children > :nth-of-type(5n+2) {
+  background-color: rgb(113,215,255);
+}
+
+.alternate-color-children > :nth-of-type(5n+3) {
+  background-color: rgb(206,129,255);
+}
+
+.alternate-color-children > :nth-of-type(5n+4) {
+  background-color: rgb(255,246,139);
+}
+
+.alternate-color-children > :nth-of-type(5n) {
+  background-color: rgb(205,252,147);
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  overflow: -moz-scrollbars-none;
+}
+
