@@ -13,10 +13,12 @@ export function usePhrases() {
     const [phrases, setPhrases] = useState<TPhrase[]>([]);
 
     const add = useCallback((newPhrase: string) => {
+        const id = uuid()
         setPhrases(prev => [...prev, {
-            id: uuid(),
+            id,
             text: newPhrase
         }])
+        return id;
     }, [])
 
     const remove = useCallback((id: string) => {
